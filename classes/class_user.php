@@ -134,7 +134,7 @@ class class_user{
 						INSERT INTO
 							`users_remember`(
 								`id_user`,
-								`crypt_id`,
+								`id_crypt`,
 								`hash`,
 								`time`
 							)
@@ -209,7 +209,7 @@ class class_user{
 				FROM
 					`users_remember`
 				WHERE
-					`crypt_id`='".$crypt_id."' and
+					`id_crypt`='".$crypt_id."' and
 					`hash`='".$hash."'
 			");
 			if(is_array($user_remember_array)){
@@ -239,7 +239,7 @@ class class_user{
 							UPDATE
 								`users_remember`
 							SET
-								`crypt_id`='".$crypt_id."'
+								`id_crypt`='".$crypt_id."'
 							WHERE
 								`id`='".$user_remember_array[0]['id']."'
 						");
@@ -425,7 +425,7 @@ class class_user{
 				`users_remember`
 			WHERE
 				`id_user`='".$this->id."' and
-				`crypt_id`='".$crypt_id."' and
+				`id_crypt`='".$crypt_id."' and
 				`hash`='".$hash."'
 		");
 		$this->delete_cookies();
